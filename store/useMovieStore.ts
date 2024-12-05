@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { fetchApi } from '../helpers/fetchApi';
 const API_BASE_URL = 'https://api.themoviedb.org/3/movie';
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -24,7 +23,13 @@ interface MovieStore {
   toggleFavorite: (movie_id: number) => void;
   addMovie: (newMovie: Movie) => void;
 }
-
+const fetchApi = async (url: string) => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Ошибка загрузки данных: ${response.statusText}`);
+  }
+  return response.json();
+};
 export const useMovieStore = create<MovieStore>((set) => ({
   movies: [],
   movie: null,
