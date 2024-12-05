@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 const API_BASE_URL = 'https://api.themoviedb.org/3/movie';
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT;
 
 export interface Movie {
   favorite?: boolean;
