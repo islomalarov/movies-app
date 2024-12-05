@@ -21,8 +21,7 @@ const TheCardsList: FunctionComponent = () => {
 
   return (
     <div className="grid gap-4 pt-4">
-      <div className="flex items-center justify-between">
-        <div>{movies.length}</div>
+      <div className="flex items-center justify-end">
         <Button onClick={() => setShowFavorite(!showFavorite)} className="bg-black">
           {showFavorite ? 'show all movies' : 'show favorite movies'}
         </Button>
